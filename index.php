@@ -117,7 +117,7 @@ By: @rokimoki
                          <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" required=""></label>
                        </fieldset>
 
-                        <label for="gender">Pick sex</label>
+                        <label for="gender">Pick gender</label>
                         <br />
                         <select class="select-style gender" name="gender">
                             <option value="M">Male</option>

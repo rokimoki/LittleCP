@@ -27,10 +27,12 @@ class LoginDB {
                                                      :group_id, 
                                                      :birthdate);");
             $consulta->bindParam(':userid', $login, PDO::PARAM_STR);
-            $consulta->bindParam(':user_pass', $GLOBALS['cp_settings']['useMD5'] ? md5($password) : $password, PDO::PARAM_STR);
+			$passwordHashed = $GLOBALS['cp_settings']['useMD5'] ? md5($password) : $password;
+            $consulta->bindParam(':user_pass', $passwordHashed, PDO::PARAM_STR);
             $consulta->bindParam(':sex', $sex, PDO::PARAM_STR);
             $consulta->bindParam(':email', $email, PDO::PARAM_STR);
-            $consulta->bindParam(':group_id', $gpid = 0, PDO::PARAM_INT);
+			$gpid = 0;
+            $consulta->bindParam(':group_id', $gpid, PDO::PARAM_INT);
             $consulta->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
             $consulta->execute();
             $conector = null;
